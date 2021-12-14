@@ -1,9 +1,12 @@
 const express = require('express');
-
 const router = express.Router();
 
-router.get('/test-me', function (req, res) {
-    res.send('My first ever api!')
-});
+const urlController = require('../controllers/urlController')
+
+
+
+router.post("/url/shorten", urlController.createUrl )
+
+router.get("/getUrl/:urlcode", urlController.getUrl )
 
 module.exports = router;
